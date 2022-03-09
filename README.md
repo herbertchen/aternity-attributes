@@ -1,0 +1,1 @@
+Aternity attributes sample code
