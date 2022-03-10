@@ -1,0 +1,1 @@
+docker run --name aternity -p 4318:4318 -e SERVER_URL="wss://agents.apm.my.aternity.com/?RPM_AGENT_CUSTOMER_ID=bb0c9a3d-cd79-4e83-9556-1b9f3e0b8e79" -e MGR_DEBUG=true registry.hub.docker.com/aternity/apm-collector:2022.4.0-4

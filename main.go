@@ -11,7 +11,6 @@ import (
 	// do not use testing
 	// "testing"
 	// add os to extract env variable
-	"os"
 
 	"go.opentelemetry.io/contrib/propagators/ot"
 	"go.opentelemetry.io/otel"
@@ -28,7 +27,7 @@ import (
 var (
 	// OTEL_EXPORTER_OTLP_ENDPOINT = os.Getenv("OTEL_EXPORTER_OTLP_ENDPOINT")
 	OTEL_EXPORTER_OTLP_ENDPOINT = "localhost:4318"
-	OTEL_SERVICE_NAME           = os.Getenv("OTEL_SERVICE_NAME")
+	OTEL_SERVICE_NAME           = "active.tax-service.debugattributes.herbert"
 )
 
 type compositeExporter struct {
@@ -116,7 +115,7 @@ func setUp(serviceName string) *trace.TracerProvider {
 // do not use testing
 // func TestAttributes(t *testing.T) {
 func TestAttributes() {
-	tp := setUp("active.tax-service.debugattributes.herbert")
+	tp := setUp(OTEL_SERVICE_NAME)
 	bc := context.Background()
 
 	spanConext, span := otel.Tracer("tax-rate").Start(bc, "pull-tax-rate")
